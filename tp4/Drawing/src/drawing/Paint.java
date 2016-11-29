@@ -19,6 +19,7 @@ public class Paint {
 	private JButton testButton;
 	private JPanel buttonPanel;
 	private JPanel mainPanel;
+	private JPanel menuPanel;
 	private Drawing drawing;
 	private StatusBar statusBar;
 	
@@ -26,6 +27,7 @@ public class Paint {
 		frame = new JFrame("Paint");
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		mainPanel = new JPanel(new BorderLayout());
+		menuPanel = new JPanel(new BorderLayout());
 		
 		drawing = new Drawing();
 		drawing.setBackground(Color.WHITE);
@@ -34,17 +36,34 @@ public class Paint {
 		rectangleButton = new JButton("Rectangle");
 		testButton = new JButton("Test");
 		
-		statusBar = new StatusBar();
+		//Pour la zone de statut
+		statusBar = new StatusBar(drawing);
+		
+		System.out.println(statusBar);
 		
 		
+		//Pour les Boutons
 		buttonPanel = new JPanel();
 		buttonPanel.add(clearButton);
 		buttonPanel.add(circleButton);
 		buttonPanel.add(rectangleButton);
-		buttonPanel.add(testButton);
 		
-		mainPanel.add(buttonPanel, BorderLayout.SOUTH);
+		//test
+		//menuPanel.add(testButton);
+		
+		
+		//Menu en bas de l'appli
+		menuPanel.add(buttonPanel, BorderLayout.NORTH);
+		menuPanel.add(statusBar, BorderLayout.SOUTH);
+		
+		//Vue principale
 		mainPanel.add(drawing, BorderLayout.CENTER);
+		mainPanel.add(menuPanel, BorderLayout.SOUTH);
+		
+		
+		
+		
+		
 		
 		//listeners pour les boutons
 		clearButton.addActionListener(new ClearButtonListener(drawing));

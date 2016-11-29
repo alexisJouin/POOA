@@ -6,8 +6,10 @@ import java.util.*;
 /**
  * JPanel pouvant afficher des objets de type Shape
  */
-public class Drawing extends JPanel implements Iterable<Shape> {
+public class Drawing extends JPanel implements Iterable<Shape>, Observable {
 
+	private Collection<Observer> observers;
+			
 	private static final long serialVersionUID = 1L;
 	
 	ArrayList<Shape> shapes;
@@ -18,7 +20,7 @@ public class Drawing extends JPanel implements Iterable<Shape> {
 	}
 	
 	/**
-	 * Implémentation de l'interface Iterable<Shape>
+	 * Impl√©mentation de l'interface Iterable<Shape>
 	 */
 	public Iterator<Shape> iterator(){
 		return shapes.iterator();
@@ -33,7 +35,7 @@ public class Drawing extends JPanel implements Iterable<Shape> {
 	}
 	
 	/** 
-	 * Redéfinition de la méthode paintComponent() de JComponent
+	 * Red√©finition de la m√©thode paintComponent() de JComponent
 	 */
 	public void paintComponent(Graphics g) {
 		super.paintComponent(g);
@@ -43,12 +45,29 @@ public class Drawing extends JPanel implements Iterable<Shape> {
 	}
 	
 	/**
-	 * Enlève toutes les formes et redessine
+	 * Enl√®ve toutes les formes et redessine
 	 */
 	public void clear(){
 		shapes.clear();
 		this.repaint();
 	}
-	
+
+	@Override
+	public void addObserver(Observer o) {
+		observers.add(o);	
+	}
+
+	@Override
+	public void removeObserver(Observer o) {
+		observers.remove(o);
+		
+	}
+
+	@Override
+	public void notifyObservers() {
+		for(Observer obs : observers ){
+			//obs.update();
+		}
+	}
 	
 }
