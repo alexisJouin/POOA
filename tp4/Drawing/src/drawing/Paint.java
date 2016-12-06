@@ -17,6 +17,8 @@ public class Paint {
 	private JButton circleButton;
 	private JButton rectangleButton;
 	private JButton testButton;
+	private JButton grouperButton;
+	private JButton dissocierButton;
 	private JPanel buttonPanel;
 	private JPanel mainPanel;
 	private JPanel menuPanel;
@@ -31,9 +33,14 @@ public class Paint {
 		
 		drawing = new Drawing();
 		drawing.setBackground(Color.WHITE);
-		clearButton = new JButton("Clear");
-		circleButton = new JButton("Circle");
+		clearButton = new JButton("Effacer");
+		circleButton = new JButton("Cercle");
 		rectangleButton = new JButton("Rectangle");
+		
+		//Boutons pour grouper/dissocier
+		grouperButton = new JButton("Grouper");
+		dissocierButton = new JButton("Dissocier");
+		
 		testButton = new JButton("Test");
 		
 		//Pour la zone de statut
@@ -48,6 +55,8 @@ public class Paint {
 		buttonPanel.add(clearButton);
 		buttonPanel.add(circleButton);
 		buttonPanel.add(rectangleButton);
+		buttonPanel.add(grouperButton);
+		buttonPanel.add(dissocierButton);
 		
 		//test
 		//menuPanel.add(testButton);
@@ -69,6 +78,7 @@ public class Paint {
 		clearButton.addActionListener(new ClearButtonListener(drawing));
 		circleButton.addActionListener(new CircleButtonListener(drawing));
 		rectangleButton.addActionListener(new RectangleButtonListener(drawing));
+		grouperButton.addActionListener(new GrouperButtonListener(drawing));
 		
 		//listeners pour la zone de dessin
 		DrawingMouseListener l = new DrawingMouseListener(drawing);

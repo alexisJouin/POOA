@@ -37,9 +37,8 @@ public class StatusBar extends JLabel implements Observer {
 
 		}
 		*/
-		
 		this.nbFigure = this.drawing.shapes.size();
-		System.out.println(nbFigure);
+		System.out.println("Nombre de Figure : " + nbFigure);
 		this.setText("<html>"
 				+ "<p><u>Barre de status :</u></p>"
 				+ "<p>Nombre de figures : <b>" + this.nbFigure + "</b></p>"

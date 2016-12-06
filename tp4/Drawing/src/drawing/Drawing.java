@@ -36,6 +36,15 @@ public class Drawing extends JPanel implements Iterable<Shape>, Observable {
 		this.repaint();
 	}
 	
+	/**
+	 * Supprime une forme au dessin et redessine
+	 */
+	public void removeShape(Shape s){
+		shapes.remove(s);
+		notifyObservers();
+		this.repaint();
+	}
+	
 	/** 
 	 * Redéfinition de la méthode paintComponent() de JComponent
 	 */

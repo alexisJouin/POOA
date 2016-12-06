@@ -9,10 +9,21 @@ import java.awt.Point;
 public abstract class Shape {
 	
 	protected Point origin;
+	protected boolean isSelected = false;
 	
 	public void setOrigin(Point p)
 	{
 		origin = p;
+	}
+	
+	public void setSelected(boolean isSelected)
+	{
+		this.isSelected = isSelected;
+	}
+	
+	public boolean isSelected()
+	{
+		return this.isSelected;
 	}
 	
 	/**
@@ -24,4 +35,5 @@ public abstract class Shape {
 	 * renvoie true si la forme occupe sur le point donné
 	 */
 	public abstract boolean isOn(Point p);
+
 }

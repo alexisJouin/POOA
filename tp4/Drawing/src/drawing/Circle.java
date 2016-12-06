@@ -27,7 +27,5 @@ public class Circle extends Shape{
 	private double distanceToCenter(Point p){
 		return this.origin.distance(p);
 	}
-	
-
 
 }
