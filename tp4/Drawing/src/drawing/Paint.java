@@ -39,7 +39,8 @@ public class Paint {
 		//Pour la zone de statut
 		statusBar = new StatusBar(drawing);
 		
-		System.out.println(statusBar);
+		
+		//System.out.println(statusBar);
 		
 		
 		//Pour les Boutons
@@ -56,11 +57,10 @@ public class Paint {
 		menuPanel.add(buttonPanel, BorderLayout.NORTH);
 		menuPanel.add(statusBar, BorderLayout.SOUTH);
 		
+		
 		//Vue principale
 		mainPanel.add(drawing, BorderLayout.CENTER);
 		mainPanel.add(menuPanel, BorderLayout.SOUTH);
-		
-		
 		
 		
 		

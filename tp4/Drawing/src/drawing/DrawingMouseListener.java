@@ -5,7 +5,7 @@ import java.awt.event.MouseListener;
 import java.awt.event.MouseMotionListener;
 
 /**
- * Listener pour gŽrer la souris dans la zone de dessin
+ * Listener pour gérer la souris dans la zone de dessin
  */
 public class DrawingMouseListener implements MouseMotionListener, MouseListener {
 
@@ -17,7 +17,7 @@ public class DrawingMouseListener implements MouseMotionListener, MouseListener 
 	}
 	
 	/**
-	 * Bouge la forme sŽlectionnŽe (si une forme est sŽlectionnŽe)
+	 * Bouge la forme sélectionnée (si une forme est sélectionnée)
 	 */
 	public void mouseDragged(MouseEvent e) {
 		if(currentShape != null){
@@ -27,7 +27,7 @@ public class DrawingMouseListener implements MouseMotionListener, MouseListener 
 	}
 	
 	/**
-	 * SŽlectionne la forme sur laquelle l'utilisateur a cliquŽ
+	 * SŽlectionne la forme sur laquelle l'utilisateur a cliqué
 	 */
 	public void mousePressed(MouseEvent e) {
 		for(Shape s : drawing){
@@ -39,7 +39,7 @@ public class DrawingMouseListener implements MouseMotionListener, MouseListener 
 	}
 
 	/**
-	 * DŽsŽlectionne la forme
+	 * Désélectionne la forme
 	 */
 	public void mouseReleased(MouseEvent e) {
 		currentShape = null;

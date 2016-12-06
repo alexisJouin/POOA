@@ -8,14 +8,15 @@ import java.util.*;
  */
 public class Drawing extends JPanel implements Iterable<Shape>, Observable {
 
-	private Collection<Observer> observers;
 			
 	private static final long serialVersionUID = 1L;
 	
 	ArrayList<Shape> shapes;
+	private ArrayList<Observer> observers;
 	
 	public Drawing(){
 		super();
+		observers = new ArrayList<Observer>();
 		shapes = new ArrayList<Shape>();
 	}
 	
@@ -31,6 +32,7 @@ public class Drawing extends JPanel implements Iterable<Shape>, Observable {
 	 */
 	public void addShape(Shape s){
 		shapes.add(s);
+		notifyObservers();
 		this.repaint();
 	}
 	
@@ -66,7 +68,7 @@ public class Drawing extends JPanel implements Iterable<Shape>, Observable {
 	@Override
 	public void notifyObservers() {
 		for(Observer obs : observers ){
-			//obs.update();
+	        obs.update(null);
 		}
 	}
 	
